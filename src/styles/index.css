@@ -198,7 +198,217 @@ body {
 /* grey used for paragraphs */
 /* lightest grey - used for outlines */
 /* Other Colors used */
-.App {
-  background-color: red;
+.navList {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  text-align: center;
+  background-color: #3b85ce;
+  position: relative;
+}
+
+.navList li {
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: 100%;
+}
+
+.navList li a {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  padding: 0 1rem;
+  margin: 1rem 0;
+}
+
+.navList .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  height: 50px;
+  white-space: nowrap;
+  color: white;
+}
+
+.navList .title svg {
+  color: currentColor;
+  cursor: pointer;
+  -webkit-transition: -webkit-transform 300ms ease, -webkit-filter 300ms linear;
+  transition: -webkit-transform 300ms ease, -webkit-filter 300ms linear;
+  transition: transform 300ms ease, filter 300ms linear;
+  transition: transform 300ms ease, filter 300ms linear, -webkit-transform 300ms ease, -webkit-filter 300ms linear;
+}
+
+.navList .title svg.open {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.navList .title .menuButton {
+  display: block;
+  visibility: visible;
+}
+
+.navList .links {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.navList .links a {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+
+.navList .socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.25rem;
+}
+
+.links a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 1rem;
+  right: 1rem;
+  height: 3px;
+  background-color: currentColor;
+  -webkit-transition: -webkit-transform 300ms ease;
+  transition: -webkit-transform 300ms ease;
+  transition: transform 300ms ease;
+  transition: transform 300ms ease, -webkit-transform 300ms ease;
+  -webkit-transform-origin: left;
+          transform-origin: left;
+  -webkit-transform: scaleX(0.1);
+          transform: scaleX(0.1);
+}
+
+.links a:hover::after {
+  -webkit-transform: scaleX(1);
+          transform: scaleX(1);
+}
+
+@media screen and (min-width: 650px) {
+  .navList {
+    height: 50px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .navList .title {
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  .navList .title h1 {
+    margin-inline: 2rem;
+  }
+  .navList .title .menuButton {
+    display: none;
+    visibility: hidden;
+  }
+  .navList .dropdown {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -ms-flex-pack: distribute;
+        justify-content: space-around;
+    width: 66%;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+  }
+  .navList .dropdown .links {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media screen and (max-width: 649px) {
+  .dropdown {
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    background-color: #3b85ce;
+    -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+    -webkit-transform-origin: top;
+            transform-origin: top;
+    -webkit-transition: -webkit-transform 500ms ease;
+    transition: -webkit-transform 500ms ease;
+    transition: transform 500ms ease;
+    transition: transform 500ms ease, -webkit-transform 500ms ease;
+  }
+  .dropdown .links,
+  .dropdown .socials {
+    opacity: 1;
+    -webkit-transition: opacity 50ms linear;
+    transition: opacity 50ms linear;
+  }
+  .dropdown.closed {
+    -webkit-transform: scaleY(0);
+            transform: scaleY(0);
+  }
+  .dropdown.closed .links,
+  .dropdown.closed .socials {
+    opacity: 0;
+  }
+  .dropdown .links a::after {
+    -webkit-transform: scaleX(0.01);
+            transform: scaleX(0.01);
+  }
+  .dropdown .links a:hover::after {
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1);
+  }
 }
 /*# sourceMappingURL=index.css.map */
